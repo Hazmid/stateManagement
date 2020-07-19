@@ -1,25 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MovieList from './movieList';
+import Nav from './Nav';
+import {MovieProvider} from './MovieContext';
+import Addmovie from './AddMovies';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //everything wrapped around <MovieProvider> because of context
+    <MovieProvider>
+        <div className="App">
+            <Nav/>
+            <Addmovie />
+            <MovieList />
+        </div>
+    </MovieProvider>
   );
 }
 
